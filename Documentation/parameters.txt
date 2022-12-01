@@ -1,0 +1,4 @@
+wd	degree	hl	10	Wind direction	Integer
+msl	hPa	hmsl	0	Air pressure	Decimal number, one decimal
+ws	m/s	hl	10	Wind speed
+ust	m/s	hl	10	Wind gust speed	Decimal number, one decimal
