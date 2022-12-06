@@ -1,7 +1,5 @@
 def main():
-    
-    print("Hello World")
-    with open("data.json", 'r', encoding="utf-8") as datafile:
+    with open("property.windspeed.json", 'r', encoding="utf-8") as datafile:
         print(datafile.read())
     return
 
