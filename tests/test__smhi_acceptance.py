@@ -1,7 +1,7 @@
 import json
 from unittest import TestCase
 
-from src.PyWeather.smhi.smhi_repository import SmhiRepository
+from src.PyWeather.smhi.repository import SmhiRepository
 from src.PyWeather.smhi_gateway import SmhiGateway
 
 

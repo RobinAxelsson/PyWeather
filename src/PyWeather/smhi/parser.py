@@ -1,5 +1,5 @@
 from src.PyWeather.models.wind import Wind
-from src.PyWeather.smhi.smhi_dto import SmhiPointRequest, SmhiGeometry, SmhiTimeSeries, SmhiParameter
+from src.PyWeather.smhi.dto import SmhiPointRequest, SmhiGeometry, SmhiTimeSeries, SmhiParameter
 
 
 class SmhiParser:

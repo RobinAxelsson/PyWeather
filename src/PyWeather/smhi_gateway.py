@@ -1,7 +1,7 @@
-from src.PyWeather.models.wind import Wind
-from src.PyWeather.smhi.smhi_mapper import SmhiMapper
-from src.PyWeather.smhi.smhi_parser import SmhiParser
-from src.PyWeather.smhi.smhi_repository import SmhiRepository
+from .models.wind import Wind
+from src.PyWeather.mapper import SmhiMapper
+from .smhi.parser import SmhiParser
+from .smhi.repository import SmhiRepository
 
 
 class SmhiGateway:

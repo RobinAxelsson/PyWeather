@@ -1,8 +1,8 @@
 import json
 from unittest import TestCase
 
-from src.PyWeather.smhi.smhi_mapper import SmhiMapper
-from src.PyWeather.smhi.smhi_parser import SmhiParser
+from src.PyWeather.mapper import SmhiMapper
+from src.PyWeather.smhi.parser import SmhiParser
 
 
 class SmhiGatewayTests(TestCase):
