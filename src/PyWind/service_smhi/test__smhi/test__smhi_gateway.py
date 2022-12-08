@@ -13,13 +13,13 @@ class SmhiAcceptanceTests(TestCase):
     def test_get_wind_collection(self):
 
         # Arrange & Act
-        winds = SmhiGateway.get_wind_collection()
+        winds = SmhiGateway.get_bjorko_farjan_wind_forecasts()
         wind0 = winds[0]
 
         # Assert
         self.assertEqual(52, wind0.direction)
-        self.assertEqual(1.2, wind0.mean)
-        self.assertEqual(3.3, wind0.gust)
+        self.assertEqual(1.2, wind0.mean_wsp)
+        self.assertEqual(3.3, wind0.max_wsp)
 
     @staticmethod
     def __load_smhi_point_request_dict() -> dict:
