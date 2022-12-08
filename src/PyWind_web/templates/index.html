@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auth-SPA-API Prototype</title>
+    <title>Björkö Forecast</title>
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
@@ -18,9 +18,9 @@
 <body>
     <nav id="nav">
         <div id="navContainer">
-            <a class="menuBtn" id="startBtn">Start</a>
+            <a class="menuBtn" id="startBtn">Björkö forecast</a>
             <a class="menuBtn" id="authorBtn">Author</a>
-            <a class="menuBtn" id="locationBtn">Björkö forecast</a>
+            <!-- <a class="menuBtn" id="locationBtn">Björkö forecast</a> -->
         </div>
         <div id='loginAddress'></div>
     </nav>
@@ -35,20 +35,26 @@
                     <img src="/static/images/Anemometer2.svg" alt="An icon of a map with a big pin.">
                 </div>
                 <div class="text-item">
-                    <h3 class="header">PyWind demo project</h3>
+                    <h3 class="header">PyWind: Björkö Forecast</h3>
                     <p>
-                       Full stack project written in python, flask using smhi open api
+                       Demo project, full stack project written in python, flask using smhi open api
                     </p>
+
+                    <h3 class="header">Direction: {{direction}}°</h3>
+                    <h3 class="header">Speed: {{mean_wsp}} m/s</h3>
+                    <h3 class="header">Gusts: {{max_wsp}} m/s</h3>
+                    <h3 class="header">N 57°42'14.4"</h3>
+                    <h3 class="header">E 11°41'24.0"</h3>
                     <p style="font-weight: bold;" id="dynamic-paragraph"></p>
                 </div>
             </div>
         </div>
 
-        <!-- Okta Identification - gets rendered dynamically at login - hidden at page load-->
-        <div class="page" id="loginPage">
-            <div class="flex-item" id="okta-login-container"></div>
-        </div>
-
+            <!-- Okta Identification - gets rendered dynamically at login - hidden at page load-->
+            <div class="page" id="loginPage">
+                <div class="flex-item" id="okta-login-container"></div>
+            </div>
+        
         <!-- Author - hidden at page load -->
         <div class="page" id="authorPage">
             <div class="page-section">
@@ -81,7 +87,7 @@
                         <h2 id="ip-address"></h2>
                         <h2 id="latitude"></h2>
                         <h2 id="longitude"></h2>
-                        <button id="getLocationBtn" onclick="getIpLocation()">Get Location</button>
+                        <!-- <button id="getLocationBtn" onclick="getIpLocation()">Get Location</button> --> -->
                     </div>
                 </div>
             </div>

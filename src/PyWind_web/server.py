@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def bjorko_forecast():
-    return render_template('index.html')
+    return render_template('index.html', direction="120", mean_wsp="6.2", max_wsp="9.2")
 
 
 @app.route('/api')
