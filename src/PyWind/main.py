@@ -1,5 +1,5 @@
 import json
-from smhi import SmhiGateway
+from service_smhi import SmhiGateway
 
 
 def get_wind_collection() -> None:

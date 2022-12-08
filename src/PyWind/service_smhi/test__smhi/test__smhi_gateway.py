@@ -1,7 +1,7 @@
 import json
 from unittest import TestCase
 
-from src.PyWeather.smhi.smhi_gateway import SmhiGateway
+from src.PyWind.service_smhi.smhi_gateway import SmhiGateway
 
 
 class SmhiAcceptanceTests(TestCase):

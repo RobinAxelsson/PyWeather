@@ -1,13 +1,13 @@
 import requests
 
-from src.PyWeather.models.wind import Wind
-from src.PyWeather.smhi.resource_models import SmhiPointRequest, SmhiTimeSeries, SmhiParameter
-from src.PyWeather.smhi.parser import parse_point_request
+from src.PyWind.domain_models.windforecast import WindForecast
+from src.PyWind.service_smhi.resource_models import SmhiPointRequest, SmhiTimeSeries, SmhiParameter
+from src.PyWind.service_smhi.parser import parse_point_request
 
 
 class SmhiGateway:
     @staticmethod
-    def get_wind_collection() -> list[Wind]:
+    def get_wind_collection() -> list[WindForecast]:
         request_json = SmhiGateway.__get_json_point_request()
         point_request = parse_point_request(request_json)
         winds = SmhiGateway.__map_wind_list(point_request)
@@ -20,12 +20,12 @@ class SmhiGateway:
         return request.json()
 
     @staticmethod
-    def __map_wind_list(point_request: SmhiPointRequest) -> list[Wind]:
+    def __map_wind_list(point_request: SmhiPointRequest) -> list[WindForecast]:
         return [SmhiGateway.__map_smhi_series_wind(x) for x in point_request.time_series]
 
     @staticmethod
-    def __map_smhi_series_wind(series: SmhiTimeSeries) -> Wind:
-        return Wind(
+    def __map_smhi_series_wind(series: SmhiTimeSeries) -> WindForecast:
+        return WindForecast(
             SmhiGateway.__get_parameter_value(series.parameters, "ws"),
             SmhiGateway.__get_parameter_value(series.parameters, "gust"),
             SmhiGateway.__get_parameter_value(series.parameters, "wd")
