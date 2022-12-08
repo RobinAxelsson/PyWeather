@@ -1,3 +1,3 @@
-# PyWeather
+# PyWind
 
-This application is a exercise in rapid API Development with Python using SMHI open API for weather forecasts.
+This applications goal is to provide local wind knowledge of specific venues to provide more accurate wind forecasts.
