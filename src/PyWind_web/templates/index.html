@@ -13,22 +13,14 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
-    <script src="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.16.0/js/okta-sign-in.min.js"
-        type="text/javascript"></script>
-    <link href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.16.0/css/okta-sign-in.min.css"
-        type="text/css" rel="stylesheet" />
-    <link href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.16.0/css/okta-theme.css"
-        type="text/css" rel="stylesheet" />
 </head>
 
 <body>
     <nav id="nav">
         <div id="navContainer">
             <a class="menuBtn" id="startBtn">Start</a>
-            <a class="menuBtn" id="loginBtn">Login</a>
             <a class="menuBtn" id="authorBtn">Author</a>
-            <a class="menuBtn" id="locationBtn" style="display:none">Location</a>
-            <a class="menuBtn" id="logoutBtn" style="display:none">Logout</a>
+            <a class="menuBtn" id="locationBtn">Forecast</a>
         </div>
         <div id='loginAddress'></div>
     </nav>
@@ -43,8 +35,7 @@
                     <img src="/static/images/location-pin.png" alt="An icon of a map with a big pin.">
                 </div>
                 <div class="text-item">
-                    <h3 class="header">IP Geolocation</h3>
-                    <button id="testModeBtn" onclick="loginMode()">Test Mode</button>
+                    <h3 class="header">PyWind demo project</h3>
                     <p>
                         Whenever you connect to the Internet you get a unique identifier for you or your network, called
                         an IP address. Usually ISPs (Internet Service Providers) have a certain range of IPs that they
@@ -58,26 +49,6 @@
                         a few users of a certain area.
                     </p>
                     <p style="font-weight: bold;" id="dynamic-paragraph"></p>
-                </div>
-            </div>
-            <div class="page-section" id="okta-info">
-                <div id="okta-img-div">
-                    <img src="/static/images/oktaLock.svg" alt="An icon of a futuristic lock.">
-                </div>
-                <div class="text-item">
-                    <h3 class="header">Okta OAth 2.0</h3>
-                    <p>
-                        OAuth 2.0 is the industry-standard protocol for authorization. OAuth 2.0 focuses on client
-                        developer simplicity while providing specific authorization flows for web applications, desktop
-                        applications, mobile phones, and living room devices.
-                    </p>
-                    <p>
-                        Okta is one trusted platform to secure every identity, from customers to your workforce. More
-                        than 9,400 organizations trust Okta’s software and APIs to sign in, authorize, and manage users.
-                    </p>
-                    <p style="font-weight: bold;">
-                        <a href="https://www.okta.com/">Read more at Okta.com</a>
-                    </p>
                 </div>
             </div>
         </div>
