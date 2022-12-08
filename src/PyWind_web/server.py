@@ -5,9 +5,12 @@ from src.PyWind import PyWind
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def bjorko_forecast():
-    return render_template('index.html', direction="120", mean_wsp="6.2", max_wsp="9.2")
+    forecast = PyWind.get_bjorko_farjan_wind_forecasts()[1]
+    return render_template('index.html', direction=forecast.direction, mean_wsp=forecast.mean_wsp,
+                           max_wsp=forecast.max_wsp, target_time=__format_time(forecast.target_time))
 
 
 @app.route('/api')
@@ -22,6 +25,11 @@ def bjorko_forecast_json():
         mimetype='application/json'
     )
     return response
+
+
+def __format_time(time):
+    [hour, minutes, _] = time.split('T')[1].split(':')
+    return f'{hour}:{minutes}'
 
 
 if __name__ == '__main__':

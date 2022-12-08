@@ -18,7 +18,7 @@
 <body>
     <nav id="nav">
         <div id="navContainer">
-            <a class="menuBtn" id="startBtn">Björkö forecast</a>
+            <a class="menuBtn" id="startBtn">Forecast</a>
             <a class="menuBtn" id="authorBtn">Author</a>
             <!-- <a class="menuBtn" id="locationBtn">Björkö forecast</a> -->
         </div>
@@ -40,6 +40,7 @@
                        Demo project, full stack project written in python, flask using smhi open api
                     </p>
 
+                    <h3 class="header">Target time: {{target_time}}</h3>
                     <h3 class="header">Direction: {{direction}}°</h3>
                     <h3 class="header">Speed: {{mean_wsp}} m/s</h3>
                     <h3 class="header">Gusts: {{max_wsp}} m/s</h3>
@@ -64,12 +65,19 @@
                 </div>
                 <div class="flex-item">
                     <div class="text-item">
-                        <h3 class="header">Author</h3>
-                        <p>The author of this project's name is Robin Axelsson. Robin is currently doing his second semester in the
-                            vocational school Teknikhogskolan in Gothenburg as .NET developer. His interests are coding,
-                            sailing and lifting.</p>
+                        <h3 class="header">Robin Salih Axelsson</h3>
+                        <p>Programmer, sailor and hobby metrologist</p>
                         <p style="font-weight: bold;">
-                            <a href="https://www.linkedin.com/in/axelsson-robin/">Connect with me at Linkedin!</a>
+                            <a href="https://www.linkedin.com/in/axelsson-robin/">Linkedin</a>
+                        </p>
+                        <p style="font-weight: bold;">
+                            <a href="https://www.github.com/robinaxelsson">GitHub page</a>
+                        </p>
+                         <p style="font-weight: bold;">
+                            <a href="https://www.github.com/robinaxelsson/PyWind">PyWind repository</a>
+                        </p>
+                        <p style="font-weight: bold;">
+                            <a href="https://opendata.smhi.se/apidocs/">Smhi Api Docs</a>
                         </p>
                     </div>
                 </div>
