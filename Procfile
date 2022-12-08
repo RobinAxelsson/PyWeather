@@ -1,0 +1,1 @@
+web: gunicorn --chdir src/PyWind_web server:app
