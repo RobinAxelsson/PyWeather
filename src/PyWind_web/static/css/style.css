@@ -1,0 +1,314 @@
+/*―――――――――――――――――――――*/
+/* Variables */
+/*―――――――――――――――――――――*/
+:root {
+    --emphasis-accent: #fc575e;
+    --light-accent-color: #f5f0f0;
+    --dark-accent-color: #333;
+    --main-grey: #555;
+    --border-rad: 10px;
+    --mobile-width: 700px;
+}
+
+/*―――――――――――――――――――――*/
+/* Resets */
+/*―――――――――――――――――――――*/
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    font-size: small;
+}
+
+/*―――――――――――――――――――――*/
+/* Global */
+/*―――――――――――――――――――――*/
+body {
+    background-color: var(--light-accent-color);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+a:visited,
+a:link,
+a:active
+{
+    text-decoration: none;
+    color: var(--dark-accent-color);
+}
+
+a:hover {
+    cursor: pointer;
+    color: var(--emphasis-accent);
+    
+}
+
+p {
+    margin-bottom: 1em;
+    font-size: medium;
+    color: var(--dark-accent-color);
+}
+h2 {
+    margin-bottom: 5px;
+}
+h3 {
+    font-size: 25px;
+    margin-bottom: 5px;
+    color: var(--dark-accent-color);
+}
+
+img {
+    width: 100%;
+}
+
+button {
+    font-size: small;
+    border: none;
+    padding: 5px 5px;
+    border-radius: 6px;
+    color: var(--light-accent-color);
+    background-color: var(--dark-accent-color);
+}
+
+button:hover{
+    cursor: pointer;
+    background-color: var(--emphasis-accent);
+}
+
+/*―――――――――――――――――――――*/
+/* Pages */
+/*―――――――――――――――――――――*/
+#page-container {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    top: 40px;
+    bottom: 40px;
+    margin-top: 10px;
+}
+
+.page {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-content: center;
+}
+
+.page-section {
+    margin: 10px 10px 10px 10px;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+    background: var(--light-accent-color);
+    border-radius: var(--border-rad);
+    box-shadow: 0px 0px 6px var(--main-grey);
+    max-width: 1200px;
+}
+
+#location-pin-div {
+    max-width: 350px;
+    padding: 50px;
+    display: flex;
+}
+
+#okta-img-div {
+    width: 100%;
+    display: flex;
+    padding: 35px;
+    max-width: 350px;
+}
+
+.text-item {
+    width: 100%;
+    max-width: 45em;
+    padding: 30px 30px 30px 0px;
+    height: 100%;
+}
+
+#author-image-div {
+    max-width: 450px;
+    display: flex;
+    padding: 35px;
+}
+
+#author-image {
+    border-radius: var(--border-rad);
+    margin-bottom: -4px;
+}
+
+#loginPage {
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*―――――――――――――――――――――*/
+/* Navbar */
+/*―――――――――――――――――――――*/
+
+#nav {
+    background: var(--dark-accent-color);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    padding: 10px;
+    padding-left: 20px;
+}
+
+
+#loginAddress {
+    color: var(--light-accent-color);
+    width: 100%;
+    margin-top: 0.1em;
+}
+
+#navContainer {
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+}
+
+.menuBtn {
+    font-size: 18px;
+    color: var(--light-accent-color);
+    margin-right: 0.6em;
+}
+
+#testModeBtn {
+    border: solid;
+    border-width: 1px;
+    align-self: center;
+    margin: 0px 0px 5px 0px;
+}
+/*―――――――――――――――――――――*/
+/* Location-page */
+/*―――――――――――――――――――――*/
+
+#locationPage {
+    flex-direction: column;
+    flex-flow: column;
+}
+
+#map-frame {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#openStreetMap-container {
+    height: 500px;
+    width: 1200px;
+    border-radius: var(--border-rad);
+}
+
+#ipData-container {
+    font-size: smaller;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.8em;
+}
+
+/*―――――――――――――――――――――*/
+/* Media-Queries */
+/*―――――――――――――――――――――*/
+
+@media (max-width: 700px) {
+
+    .page-section {
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        width: 95%;
+    }
+
+    #location-pin-div {
+        max-width: 300px;
+        padding: 20px;
+        min-width: 120px;
+    }
+
+    #okta-img-div {
+        padding: 20px;
+        max-width: 300px;
+        min-width: 120px;
+    }
+
+    #author-text {
+        max-width: 530px;
+    }
+
+    #ipData {
+        align-self: left;
+        font-size: smaller;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #map-frame {
+        height: 200px;
+    }
+
+    .text-item {
+        max-width: 400px;
+        font-size: small;
+        padding: 0px 15px 10px 15px;
+    }
+    button {
+        font-size: small;
+    }
+}
+
+@media (max-width: 300px) {
+    .menuBtn {
+        font-size: small;
+        align-self: center;
+    }
+
+    #nav {
+        padding: 10px;
+    }
+
+    #loginAddress {
+        font-size: x-small;
+    }
+
+    h3 {
+        font-size: smaller;
+    }
+
+    p {
+        font-size: smaller;
+    }
+
+    #map-frame {
+        height: 200px;
+    }
+
+    .page-section {
+        margin: 5px 5px 5px 5px;
+    }
+
+    .text-item {
+        padding: 0px 15px 10px 15px;
+    }
+
+    a {
+        font-size: x-small;
+    }
+    button {
+        font-size: x-small;
+    }
+}

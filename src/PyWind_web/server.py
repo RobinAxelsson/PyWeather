@@ -5,10 +5,9 @@ from src.PyWind import PyWind
 
 app = Flask(__name__)
 
-
 @app.route('/')
 def bjorko_forecast():
-    return render_template('index.html', name="robb")
+    return render_template('index.html')
 
 
 @app.route('/api')
