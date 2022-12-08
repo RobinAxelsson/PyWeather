@@ -7,7 +7,6 @@ from src.PyWeather.smhi_gateway import SmhiGateway
 
 class SmhiIntegrationTests(TestCase):
 
-    @skip('Makes external request')
     def test_get_wind_collection(self):
 
         # Act

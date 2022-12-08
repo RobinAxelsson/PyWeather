@@ -1,7 +1,6 @@
 import json
 from unittest import TestCase
-
-from src.PyWeather.smhi.repository import SmhiRepository
+import src.PyWeather.smhi.repository as repository
 from src.PyWeather.smhi_gateway import SmhiGateway
 
 
@@ -9,7 +8,7 @@ class SmhiAcceptanceTests(TestCase):
     json_dict = None
 
     def setUp(self):
-        SmhiRepository.get_json_point_request = SmhiAcceptanceTests.__load_smhi_point_request_dict
+        repository.get_json_point_request = SmhiAcceptanceTests.__load_smhi_point_request_dict
 
     def test_get_wind_collection(self):
 
@@ -25,6 +24,6 @@ class SmhiAcceptanceTests(TestCase):
     @staticmethod
     def __load_smhi_point_request_dict() -> dict:
         if SmhiAcceptanceTests.json_dict is None:
-            with open("json/smhi.point-request.json", 'r') as f:
+            with open("smhi.point-request.json", 'r') as f:
                 SmhiAcceptanceTests.json_dict = json.load(f)
         return SmhiAcceptanceTests.json_dict
