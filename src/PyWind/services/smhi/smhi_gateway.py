@@ -1,8 +1,8 @@
 import requests
 
-from src.PyWind.domain.entities.windforecast import WindForecast
-from src.PyWind.services.smhi.resource_models import SmhiPointRequest, SmhiTimeSeries, SmhiParameter
-from src.PyWind.services.smhi.parser import parse_point_request
+from PyWind.domain.entities.windforecast import WindForecast
+from PyWind.services.smhi.resource_models import SmhiPointRequest, SmhiTimeSeries, SmhiParameter
+from PyWind.services.smhi.parser import parse_point_request
 
 
 class SmhiGateway:

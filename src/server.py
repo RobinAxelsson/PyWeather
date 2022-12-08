@@ -1,7 +1,7 @@
 import json
 
 from flask import Flask, render_template
-from src.PyWind import PyWind
+from PyWind import PyWind
 
 app = Flask(__name__)
 

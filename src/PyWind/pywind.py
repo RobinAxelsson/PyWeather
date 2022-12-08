@@ -1,5 +1,5 @@
-from src.PyWind.domain.entities.windforecast import WindForecast
-from src.PyWind.services.smhi import SmhiGateway
+from PyWind.domain.entities.windforecast import WindForecast
+from PyWind.services.smhi import SmhiGateway
 
 
 class PyWind:
