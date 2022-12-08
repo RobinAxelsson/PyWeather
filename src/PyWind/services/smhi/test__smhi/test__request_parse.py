@@ -1,8 +1,8 @@
 import json
 from unittest import TestCase
 
-from src.PyWind.service_smhi.resource_models import SmhiPointRequest, SmhiGeometry, SmhiTimeSeries, SmhiParameter
-from src.PyWind.service_smhi.parser import parse_point_request
+from src.PyWind.services.smhi.resource_models import SmhiPointRequest, SmhiGeometry, SmhiTimeSeries, SmhiParameter
+from src.PyWind.services.smhi.parser import parse_point_request
 
 
 class SmhiRequestParserTests(TestCase):

@@ -1,8 +1,8 @@
 import requests
 
 from src.PyWind.domain.entities.windforecast import WindForecast
-from src.PyWind.service_smhi.resource_models import SmhiPointRequest, SmhiTimeSeries, SmhiParameter
-from src.PyWind.service_smhi.parser import parse_point_request
+from src.PyWind.services.smhi.resource_models import SmhiPointRequest, SmhiTimeSeries, SmhiParameter
+from src.PyWind.services.smhi.parser import parse_point_request
 
 
 class SmhiGateway:
@@ -14,7 +14,7 @@ class SmhiGateway:
         return winds
 
     @staticmethod
-    def __get_json_point_request(latitude: float, longitude:float) -> dict:
+    def __get_json_point_request(latitude, longitude) -> dict:
         base_url = 'https://opendata-download-metfcst.smhi.se/api/'
         endpoint = f'category/pmp3g/version/2/geotype/point/lon/{longitude}/lat/{latitude}/data.json'
         request = requests.get(base_url + endpoint)

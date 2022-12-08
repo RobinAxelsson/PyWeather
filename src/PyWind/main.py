@@ -1,5 +1,5 @@
 import json
-from service_smhi import SmhiGateway
+from src.PyWind.services.smhi import SmhiGateway
 
 
 def get_bjorko_farjan_wind_collection() -> None:

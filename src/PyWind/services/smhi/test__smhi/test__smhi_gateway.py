@@ -1,7 +1,7 @@
 import json
 from unittest import TestCase
 
-from src.PyWind.service_smhi.smhi_gateway import SmhiGateway
+from src.PyWind.services.smhi.smhi_gateway import SmhiGateway
 
 
 class SmhiAcceptanceTests(TestCase):
@@ -22,7 +22,7 @@ class SmhiAcceptanceTests(TestCase):
         self.assertEqual(3.3, wind0.max_wsp)
 
     @staticmethod
-    def __load_smhi_point_request_dict() -> dict:
+    def __load_smhi_point_request_dict(latitude, longitude) -> dict:
         if SmhiAcceptanceTests.json_dict is None:
             with open("smhi.point-request.json", 'r') as f:
                 SmhiAcceptanceTests.json_dict = json.load(f)
