@@ -1,6 +1,6 @@
 import json
 
-from src.PyWeather.smhi_gateway import SmhiGateway
+from src.PyWeather.smhi.smhi_gateway import SmhiGateway
 
 
 def get_wind_collection() -> None:
