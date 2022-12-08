@@ -1,7 +1,7 @@
 import json
 from unittest import TestCase
 
-from src.PyWeather.smhi import SmhiPointRequest, SmhiGeometry, SmhiTimeSeries, SmhiParameter
+from src.PyWeather.smhi.resource_models import SmhiPointRequest, SmhiGeometry, SmhiTimeSeries, SmhiParameter
 from src.PyWeather.smhi.parser import parse_point_request
 
 
