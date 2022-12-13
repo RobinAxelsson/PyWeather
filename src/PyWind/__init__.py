@@ -1,1 +1,1 @@
-from .services.smhi import get_bjorko_farjan_wind_forecasts
+from .data_access.data_manager import get_ockero_farjan_forecasts
