@@ -1,1 +1,1 @@
-from .smhi_gateway import SmhiGateway
+from .smhi_gateway import get_bjorko_farjan_wind_forecasts

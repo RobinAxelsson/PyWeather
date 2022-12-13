@@ -1,4 +1,7 @@
-from PyWind.services.smhi.resource_models import SmhiPointRequest, SmhiGeometry, SmhiTimeSeries, SmhiParameter
+from .smhi_geometry import SmhiGeometry
+from .smhi_parameter import SmhiParameter
+from .smhi_point_request import SmhiPointRequest
+from .smhi_time_series import SmhiTimeSeries
 
 
 def parse_point_request(request_json: dict) -> SmhiPointRequest:

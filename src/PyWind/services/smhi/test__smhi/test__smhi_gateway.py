@@ -1,19 +1,18 @@
 import json
 from unittest import TestCase
-
-from src.PyWind.services.smhi.smhi_gateway import SmhiGateway
+from ..smhi_gateway import get_bjorko_farjan_wind_forecasts
 
 
 class SmhiAcceptanceTests(TestCase):
     json_dict = None
 
     def setUp(self):
-        SmhiGateway._SmhiGateway__get_json_point_request = SmhiAcceptanceTests.__load_smhi_point_request_dict
+        __get_json_point_request = SmhiAcceptanceTests.__load_smhi_point_request_dict
 
     def test_get_wind_collection(self):
 
         # Arrange & Act
-        winds = SmhiGateway.get_bjorko_farjan_wind_forecasts()
+        winds = get_bjorko_farjan_wind_forecasts()
         wind0 = winds[0]
 
         # Assert

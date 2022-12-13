@@ -1,2 +1,1 @@
-from .pywind import PyWind
-
+from .services.smhi import get_bjorko_farjan_wind_forecasts

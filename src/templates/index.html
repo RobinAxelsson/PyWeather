@@ -1,111 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- {
+    "mean_wsp": 4.3,
+    "max_wsp": 6.3,
+    "direction": 42,
+    "latitude": 57.706442,
+    "longitude": 11.678861,
+    "reference_time": "2022-12-11T20:00:00Z",
+    "target_time": "2022-12-11T21:00:00Z",
+    "source": "smhi"
+    }, -->
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PyWind</title>
-    <link rel="stylesheet" href="/static/css/style.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-        crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-        crossorigin=""></script>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
-
 <body>
-    <nav id="nav">
-        <div id="navContainer">
-            <a class="menuBtn" id="startBtn">Forecast</a>
-            <a class="menuBtn" id="authorBtn">Author</a>
-            <a class="menuBtn" id="apiBtn" href="/api">API</a>
-            <!-- <a class="menuBtn" id="locationBtn">Björkö forecast</a> -->
-        </div>
-        <div id='loginAddress'></div>
-    </nav>
-
-    <!-- As this is a single page application navigation is dynamically done with javascript changing the style="display: none;" inside code, this has the consequence that the login service only identifies the user but can't truly restrict user access. -->
-    <div id="page-container">
-
-        <!-- Start Page -->
-        <div class="page" id="startPage">
-            <div class="page-section">
-                <div id="location-pin-div">
-                    <img src="/static/images/Anemometer2.svg" alt="An icon of a map with a big pin.">
-                </div>
-                <div class="text-item">
-                    <h3 class="header">Grötö-Kalvsund Forecast</h3>
-                    <p>
-                       Demo project, full stack, written in python, flask as server (but serving an SPA-page), data is fetched using smhi open api
-                    </p>
-
-                    <h3 class="header">Target time: {{target_time}}</h3>
-                    <h3 class="header">Direction: {{direction}}°</h3>
-                    <h3 class="header">Speed: {{mean_wsp}} m/s</h3>
-                    <h3 class="header">Gusts: {{max_wsp}} m/s</h3>
-                    <h3 class="header">N 57°42'14.4"</h3>
-                    <h3 class="header">E 11°41'24.0"</h3>
-                    <p style="font-weight: bold;" id="dynamic-paragraph"></p>
-                </div>
-            </div>
-        </div>
-
-            <!-- Okta Identification - gets rendered dynamically at login - hidden at page load-->
-            <div class="page" id="loginPage">
-                <div class="flex-item" id="okta-login-container"></div>
-            </div>
-        
-        <!-- Author - hidden at page load -->
-        <div class="page" id="authorPage">
-            <div class="page-section">
-                <div id="author-image-div">
-                    <img id="author-image" src="/static/images/portrait-author-small.png"
-                        alt="A portrait picture of the author">
-                </div>
-                <div class="flex-item">
-                    <div class="text-item">
-                        <h3 class="header">Robin Salih Axelsson</h3>
-                        <p>Programmer, sailor and hobby metrologist</p>
-                        <p style="font-weight: bold;">
-                            <a href="https://www.linkedin.com/in/axelsson-robin/">Linkedin</a>
-                        </p>
-                        <p style="font-weight: bold;">
-                            <a href="https://www.github.com/robinaxelsson">GitHub page</a>
-                        </p>
-                         <p style="font-weight: bold;">
-                            <a href="https://www.github.com/robinaxelsson/PyWind">PyWind repository</a>
-                        </p>
-                        <p style="font-weight: bold;">
-                            <a href="https://opendata.smhi.se/apidocs/">Smhi Api Docs</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Location - renders the world map and exposing the ip-location api. - hidden at page load -->
-        <div class="page" id="locationPage">
-            <div class="page-section" id="locationPage">
-                <div class="flex-item" id="map-frame">
-                    <div id="openStreetMap-container"></div>
-                </div>
-                <div class="flex-item">
-                    <div class="text-item" id="ipData-container">
-                        <h2 id="ip-address"></h2>
-                        <h2 id="latitude"></h2>
-                        <h2 id="longitude"></h2>
-                        <!-- <button id="getLocationBtn" onclick="getIpLocation()">Get Location</button> --> -->
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="text-item">
+        <table>
+            <tr>
+                <th>Value</th>
+                <th>Unit</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td id="target_time"></td>
+                <td>UTC+1</td>
+                <td>Target time of forecast</td>
+            </tr>
+            <tr>
+                <td id="wind_direction"></td>
+                <td>degrees</td>
+                <td>Wind direction</td>
+            </tr>
+            <tr>
+                <td id="wind_speed"></td>
+                <td>m/s</td>
+                <td>Average wind speed (10 minutes)</td>
+            </tr>
+            <tr>
+                <td id="wind_gusts"></td>
+                <td>m/s</td>
+                <td>Maximum wind speed</td>
+            </tr>
+        </table>
     </div>
-    <script src="/static/JS/utility.js"></script>
-    <script src="/static/JS/oktaID.js"></script>
-    <script src="/static/JS/locationApi.js"></script>
-    <script src="/static/JS/navigation.js"></script>
 </body>
+
+<script>
+
+async function updateWindForecastBjorko() {
+    const response = await fetch("/api");
+    const jObj = await response.json();
+    const wind0 = jObj[0]
+
+    console.log(wind0.target_time)
+
+    setInnerHtml("#target_time", wind0.target_time)
+    setInnerHtml("#wind_direction", wind0.direction)
+    setInnerHtml("#wind_speed", wind0.mean_wsp)
+    setInnerHtml("#wind_gusts", wind0.max_wsp)
+    console.log(wind0)
+}
+
+function setInnerHtml(id, value) {
+    console.log("inside")
+    if (document.querySelector(id) !== null) {
+        element = document.querySelector(id)
+        console.log(element)
+        element.innerHTML = value
+    } else {
+        console.error('setInnerHtml(id, value): ' + id + ' is not found!');
+    }
+}
+
+updateWindForecastBjorko();
+
+</script>
 
 </html>

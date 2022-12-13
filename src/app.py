@@ -1,25 +1,33 @@
-import json
-
+from PyWind import get_bjorko_farjan_wind_forecasts
 from flask import Flask, render_template
-from PyWind import PyWind
+from dotenv import load_dotenv
+import json
+import os
 
-app = Flask(__name__)
+
+load_dotenv()
+server = Flask(__name__)
+
+if os.getenv('APP_ENVIRONMENT') == "DEVELOPMENT":
+    server.debug = True
+    from __test.pywind_double import get_forecasts_double
+    get_bjorko_farjan_wind_forecasts = get_forecasts_double
 
 
-@app.route('/')
+@server.route('/')
 def bjorko_forecast():
-    forecast = PyWind.get_bjorko_farjan_wind_forecasts()[1]
+    forecast = get_bjorko_farjan_wind_forecasts()[1]
     return render_template('index.html', direction=forecast.direction, mean_wsp=forecast.mean_wsp,
                            max_wsp=forecast.max_wsp, target_time=__format_time(forecast.target_time))
 
 
-@app.route('/api')
+@server.route('/api')
 def bjorko_forecast_json():
-    wind_forecasts = PyWind.get_bjorko_farjan_wind_forecasts()
+    wind_forecasts = get_bjorko_farjan_wind_forecasts()
     json_winds = [json.dumps(x.__dict__) for x in wind_forecasts]
     json_response = '[' + ",".join(json_winds) + ']'
 
-    response = app.response_class(
+    response = server.response_class(
         response=json_response,
         status=200,
         mimetype='application/json'
@@ -32,5 +40,6 @@ def __format_time(time):
     return f'{hour}:{minutes}'
 
 
+
 if __name__ == '__main__':
-    app.run()
+    server.run()
